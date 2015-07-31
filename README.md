@@ -1,2 +1,2 @@
 
-<img src="angular.png" align="center"/>
+<img src="angular.png" align="center">
