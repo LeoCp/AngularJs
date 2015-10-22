@@ -1,0 +1,51 @@
+<!---+++++++++++++++++++
++ Leonardo Colodette
+++++++++++++++++++++-->
+
+<!DOCTYPE html>
+<html ng-app>
+    <head>
+        <meta charset="utf-8">
+        <title>Angular JS - LeoCp</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <script type="text/javascript" src="_js/angular.min.js"></script>
+    </head>
+    <body>
+        <br><br>
+        <div class="container">
+
+            <div class="well">
+                <h1>Cadastro de livro</h1>
+            </div>
+
+            <!-- Formulario -->
+            <form name="form">
+
+                <!-- Campo Nome -->
+                <div class="form-group">
+                    <label>Nome:</label>
+                    <input ng-model="nome" type="text" class="form-control" />
+                </div>
+
+                <!--Campo Autor-->
+                <div class="form-group">
+                    <label>Autor:</label>
+                    <input ng-model="autor" type="text" class="form-control" />
+                </div>
+
+                <!-- Campo Numero de paginas-->
+                <div class="form-group">
+                    <label>Número de Paginas:</label>
+                    <input ng-model="numeroDePaginas" type="text" class="form-control" />
+                </div>
+
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </form>
+            <br><br>
+
+            {{nome}}<br>
+            {{autor}}<br>
+            {{numeroDePaginas}}
+        </div>
+    </body>
+</html>
