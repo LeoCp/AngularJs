@@ -3,49 +3,86 @@
 ++++++++++++++++++++-->
 
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="app">
+
     <head>
         <meta charset="utf-8">
         <title>Angular JS - LeoCp</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="_js/bootstrap.min.js"></script>
         <script type="text/javascript" src="_js/angular.min.js"></script>
+        <script type="text/javascript" src="_js/script.js"></script>
     </head>
     <body>
         <br><br>
-        <div class="container">
+        <div class="container" ng-controller="ctrl">
 
             <div class="well">
                 <h1>Cadastro de livro</h1>
             </div>
 
-            <!-- Formulario -->
-            <form name="form">
-
-                <!-- Campo Nome -->
-                <div class="form-group">
-                    <label>Nome:</label>
-                    <input ng-model="nome" required type="text" class="form-control" />
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                  <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Cadastrar
+                    </a>
+                  </h4>
                 </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                  <div class="panel-body">
+                  <!-- Formulario -->
+                  <form name="form">
 
-                <!--Campo Autor-->
-                <div class="form-group">
-                    <label>Autor:</label>
-                    <input ng-model="autor" required type="text" class="form-control" />
+                      <!-- Campo Nome -->
+                      <div class="form-group">
+                          <label>Nome:</label>
+                          <input ng-model="livro.nome" required type="text" class="form-control" />
+                      </div>
+
+                      <!--Campo Autor-->
+                      <div class="form-group">
+                          <label>Autor:</label>
+                          <input ng-model="livro.autor" required type="text" class="form-control" />
+                      </div>
+
+                      <!-- Campo Numero de paginas-->
+                      <div class="form-group">
+                          <label>Número de Paginas:</label>
+                          <input ng-model="livro.numeroDePaginas" required type="text" class="form-control" />
+                      </div>
+
+                      <button ng-click="addLivro(livro)" ng-disabled="form.$invalid" type="submit" class="btn btn-primary">Cadastrar</button>
+                  </form>
+                  </div>
                 </div>
-
-                <!-- Campo Numero de paginas-->
-                <div class="form-group">
-                    <label>Número de Paginas:</label>
-                    <input ng-model="numeroDePaginas" required type="text" class="form-control" />
-                </div>
-
-                <button  ng-disabled="form.$invalid" type="submit" class="btn btn-primary">Cadastrar</button>
-            </form>
+              </div>
             <br><br>
 
-            {{nome}}<br>
-            {{autor}}<br>
-            {{numeroDePaginas}}
+            <!-- Tabela -->
+            <div class="tabela">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Nome</th>
+                    <th>Autor</th>
+                    <th>Paginas</th>
+                  </tr>
+                </thead>
+                <tbody ng-if="livros.length > 0" >
+
+                  <tr ng-repeat="livro in livros">
+                    <td>{{livro.nome}}</td>
+                    <td>{{livro.autor}}</td>
+                    <td>{{livro.numeroDePaginas}}</td>
+                  </tr>
+                </tbody>
+              </table>
+
+
+            </div>
         </div>
+
     </body>
 </html>
