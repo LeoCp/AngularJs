@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="helloWorld">
+
+  <head>
+    <meta charset="utf-8">
+    <title>AngularJs</title>
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript">
+
+       //cria um modulo
+      angular.module("helloWorld", []); // [] significa importar novos modulos...
+
+      //localiza um modulo
+      angular.module("helloWorld").controller("helloWorldCtrl", function ($scope) {
+        $scope.message = "Hello World!";
+      });
+
+    </script>
+  </head>
+  <!-- A view é onde esta o ng-controller-->
+  <body ng-controller="helloWorldCtrl">
+
+      {{message}}
+
+  </body>
+</html>
